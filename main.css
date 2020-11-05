@@ -1,0 +1,59 @@
+body {
+    background-color: rgb(20, 33, 71);
+}
+.theList {
+    float: right;
+    position: relative;
+    font-size: 1.3em;
+    color: white;
+    width: 500px;
+    margin-right: 15%;
+}
+form {
+    text-align: center;
+    clear: both;
+    position: absolute;
+    margin-left: 15%;
+}
+.std-inp {
+    border: none;
+    outline: none;
+    background: none;
+    border-bottom: 2px solid white;
+    font-size: 1.5em;
+    padding: 1em;
+    color: white;
+    transition: 1s;
+}
+.std-inp:hover, .std-inp:focus {
+    border-bottom: 2px solid orangered;
+    transition: 1s;
+}
+.std-sub {
+    border: none;
+}
+.std-sub:hover, .std-sub:focus {
+    border: none;
+    color: orangered;
+    cursor: pointer;
+}
+li {
+    list-style-type: none;
+    margin: 2%;
+}
+li:hover {
+    color: orangered;
+    cursor: pointer;
+}
+.activeWatch {
+    margin-top: 15%;
+    margin-left: 15%;
+    position: absolute;
+    color: white;
+}
+h2 {
+    font-size: 1.7em;
+}
+h3 {
+    font-size: 1.4em;
+}
