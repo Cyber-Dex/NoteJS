@@ -26,17 +26,41 @@ class App extends React.Component {
                 title : event.target.name.value,
                 note : event.target.note.value
             }
+            localStorage.setItem(newNote.id.toString(), JSON.stringify(newNote));
             return {
-                notes : [...state.notes,newNote ]
+                notes : [...state.notes,newNote ],
             }
         })
     }
+    handleLoad = () => {
+        let values = [],
+            keys = Object.keys(localStorage),
+            i = keys.length;
+
+        while ( i-- ) {
+            values.push( localStorage.getItem(keys[i]) );
+        }
+
+        values.map( note => (
+            this.setState(state => {
+                return {
+                    notes : [...state.notes, note],
+                }
+            })
+        ))
+
+        return {
+            notes : [...state.notes, values],
+        }
+    }
+
     handleChange = event => {
         if( event.target.name === "name" ) this.setState({ name : event.target.value })
 
         if( event.target.name === "note" ) this.setState({ note : event.target.value })
     }
     handleDelete = note => {
+        localStorage.removeItem(note.id.toString());
         this.setState(state => {
             return {
                notes: state.notes.filter(item => item !== note)
@@ -55,6 +79,7 @@ class App extends React.Component {
         ))
     }
     render() {
+        //this.handleLoad()
         return (
             <div>
                 <ul className="theList">{this.notesList()}</ul>
